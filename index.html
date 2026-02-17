@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WanderNest Journeys</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="nav">
+        <div class="logo">
+          <span class="logo-mark">WJ</span>
+          <span class="logo-text">WanderNest Journeys</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#trips">Trips</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-cta">Plan a Trip</button>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-content">
+            <p class="eyebrow">Boutique Travel Experiences</p>
+            <h1>
+              Curated journeys<br />
+              for the way <span class="accent">you</span> travel.
+            </h1>
+            <p class="hero-subtitle">
+              Handcrafted itineraries, seamless planning, and unforgettable memories—designed by experts who travel like you do.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-scroll-target="#trips">
+                Explore Signature Trips
+              </button>
+              <button class="ghost-btn" data-scroll-target="#contact">
+                Custom Itinerary
+              </button>
+            </div>
+            <div class="hero-meta">
+              <div>
+                <h3>120+</h3>
+                <p>Curated routes</p>
+              </div>
+              <div>
+                <h3>98%</h3>
+                <p>Happy travelers</p>
+              </div>
+              <div>
+                <h3>35</h3>
+                <p>Countries covered</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-mosaic" aria-hidden="true">
+              <div class="hero-mosaic-tile hero-mosaic-tile--big">
+                <img
+                  src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=70"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="hero-mosaic-tile">
+                <img
+                  src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=70"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="hero-mosaic-tile">
+                <img
+                  src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=70"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="hero-card hero-card-main">
+              <h3>Sunrise over Cappadocia</h3>
+              <p>Hot air balloons · Boutique cave stay · Local guide</p>
+              <span class="pill">New</span>
+            </div>
+            <div class="hero-card hero-card-secondary">
+              <p>Next group departure</p>
+              <h3>April 18, 2026</h3>
+              <span>Limited seats</span>
+            </div>
+            <div class="hero-tag hero-tag-top">Slow Travel Friendly</div>
+            <div class="hero-tag hero-tag-bottom">Visa & Support Included</div>
+          </div>
+        </section>
+
+        <section id="trips" class="section trips-section">
+          <div class="section-header">
+            <h2>Signature Trips</h2>
+            <p>
+              Each itinerary is crafted end-to-end by our travel designers. Click a trip to see the full day-by-day plan and download it instantly.
+            </p>
+          </div>
+
+          <div id="trip-filters" class="trip-filters">
+            <button class="chip chip-active" data-filter="all">All</button>
+            <button class="chip" data-filter="beach">Beach</button>
+            <button class="chip" data-filter="city">City</button>
+            <button class="chip" data-filter="adventure">Adventure</button>
+            <button class="chip" data-filter="romantic">Romantic</button>
+          </div>
+
+          <div id="trip-list" class="trip-grid">
+            <!-- Cards injected by JS -->
+          </div>
+        </section>
+
+        <section id="why-us" class="section why-section">
+          <div class="section-header">
+            <h2>Why WanderNest Journeys</h2>
+            <p>
+              Not another generic travel agency. We combine local expertise with boutique hospitality to design trips that feel personal.
+            </p>
+          </div>
+          <div class="why-grid">
+            <div class="why-card">
+              <h3>Human-crafted, not AI-only</h3>
+              <p>
+                Every itinerary is reviewed by a destination specialist who has actually been there, walked those streets, and stayed in those hotels.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>End-to-end support</h3>
+              <p>
+                From visas and insurance to local SIMs and airport transfers—we build everything into your plan so you only focus on the experience.
+              </p>
+            </div>
+            <div class="why-card">
+              <h3>Flexible & modular</h3>
+              <p>
+                Start with a signature trip and we’ll adapt days, pace, and budget to match how you like to travel.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+          <div class="section-header">
+            <h2>Plan Your Next Journey</h2>
+            <p>
+              Share a few details and our travel designer will reach out with a draft itinerary within 24 hours.
+            </p>
+          </div>
+          <form class="contact-form" onsubmit="event.preventDefault();">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your full name" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="destination">Dream destination</label>
+                <input id="destination" type="text" placeholder="e.g., Bali, Paris, Kenya" />
+              </div>
+              <div class="form-field">
+                <label for="dates">Tentative dates</label>
+                <input id="dates" type="text" placeholder="Month or exact dates" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="message">Tell us how you like to travel</label>
+              <textarea
+                id="message"
+                rows="4"
+                placeholder="Slow pace, food-focused, kid-friendly, workation, honeymoon, etc."
+              ></textarea>
+            </div>
+            <button type="submit" class="primary-btn full-width">
+              Request a Custom Itinerary
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> WanderNest Journeys. All rights reserved.</p>
+        <p class="footer-sub">
+          Designed with care for modern explorers.
+        </p>
+      </footer>
+    </div>
+
+    <div id="trip-modal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" data-close-modal>&times;</button>
+        <div class="modal-body">
+          <div class="modal-banner">
+            <img id="modal-image" alt="" loading="lazy" decoding="async" />
+            <div class="modal-banner-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="modal-header">
+            <h2 id="modal-title"></h2>
+            <p id="modal-subtitle" class="modal-subtitle"></p>
+            <div class="modal-tags">
+              <span id="modal-duration" class="pill"></span>
+              <span id="modal-theme" class="pill pill-outline"></span>
+            </div>
+          </div>
+          <div id="modal-itinerary" class="modal-itinerary">
+            <!-- Days injected by JS -->
+          </div>
+          <div class="modal-footer">
+            <button id="download-btn" class="primary-btn">
+              Download Itinerary
+            </button>
+            <button class="ghost-btn" data-close-modal>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
