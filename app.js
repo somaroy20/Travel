@@ -6,7 +6,7 @@ const trips = [
     duration: "7 days · 6 nights",
     theme: "beach",
     image:
-      "images/beach1.jpeg",
+      "images/beach2.jpeg",
     imageAlt: "A tropical Bali shoreline with palm trees and blue water.",
     bestFor: "Slow travel, couples, wellness",
     priceHint: "From $1,450 per person (land only)",
@@ -570,6 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupModal();
   setupScrollButtons();
 });
+
 
 
 
