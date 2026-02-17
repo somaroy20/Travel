@@ -1,7 +1,7 @@
 const trips = [
   {
     id: "bali-slow-luxe",
-    title: "Bali Slow-Luxe Escape",
+    title: "Goa",
     location: "Ubud · Uluwatu · Canggu, Indonesia",
     duration: "7 days · 6 nights",
     theme: "beach",
@@ -570,5 +570,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupModal();
   setupScrollButtons();
 });
+
 
 
