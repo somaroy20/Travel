@@ -1,240 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanderNest Journeys</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="page">
-      <header class="nav">
-        <div class="logo">
-          <span class="logo-mark">WJ</span>
-          <span class="logo-text">WanderNest Journeys</span>
-        </div>
-        <nav class="nav-links">
-          <a href="#trips">Trips</a>
-          <a href="#why-us">Why Us</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="nav-cta">Plan a Trip</button>
-      </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twist & Tours — Luxury Travel, Because You Deserve It</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --night:#0b0d0f;--deep:#131618;--panel:#1a1d20;--border:#252829;
+  --mist:#3c4045;--muted:#6b7280;--silver:#9ca3af;--light:#e8e4dd;--white:#f7f4ef;
+  --ember:#e8561a;--ember2:#ff7a3d;--gold:#c8952a;--gold2:#e5b84a;--teal:#1a8c7a;
+  --ff-d:'Playfair Display',Georgia,serif;--ff-b:'Outfit',system-ui,sans-serif;
+  --expo:cubic-bezier(.16,1,.3,1);--ease:cubic-bezier(.4,0,.2,1);
+}
+body{font-family:var(--ff-b);background:var(--night);color:var(--light);overflow-x:hidden;cursor:none}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--deep)}::-webkit-scrollbar-thumb{background:var(--ember);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:9997;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.025}
+#cd{position:fixed;z-index:9999;width:8px;height:8px;background:var(--ember);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+#cr{position:fixed;z-index:9998;width:36px;height:36px;border:1.5px solid rgba(232,86,26,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%)}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:padding .4s var(--ease),background .4s}
+nav.solid{background:rgba(11,13,15,.93);backdrop-filter:blur(16px);padding:1rem 3rem;border-bottom:1px solid var(--border)}
+.nlogo{font-family:var(--ff-d);font-size:1.45rem;font-weight:700;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.4rem}
+.nlogo-em{color:var(--ember)}
+.ndot{width:7px;height:7px;border-radius:50%;background:var(--ember);animation:pdot 2.5s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.55)}}
+.nlinks{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nlinks a{font-size:.77rem;font-weight:500;text-transform:uppercase;letter-spacing:.13em;color:rgba(232,228,221,.5);text-decoration:none;position:relative;transition:color .2s}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--ember);transition:width .3s var(--expo)}
+.nlinks a:hover{color:var(--white)}.nlinks a:hover::after{width:100%}
+.ncta{padding:.6rem 1.4rem;background:var(--ember);color:var(--white)!important;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.13em;border-radius:2px;transition:background .2s,transform .2s}
+.ncta::after{display:none!important}.ncta:hover{background:var(--ember2)!important;transform:translateY(-1px)}
+/* HERO */
+.hero{position:relative;min-height:100svh;display:grid;overflow:hidden}
+.hbg{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.hbg-col{position:relative;overflow:hidden}
+.hbg-col img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:hzoom 20s ease-in-out infinite alternate;filter:brightness(.42) saturate(.75)}
+.hbg-col:nth-child(2) img{animation-delay:-10s;animation-direction:alternate-reverse}
+@keyframes hzoom{from{transform:scale(1.08)}to{transform:scale(1.15)}}
+.hbg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,13,15,.88) 0%,rgba(11,13,15,.45) 50%,rgba(11,13,15,.72) 100%)}
+.hcontent{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 6rem;max-width:860px}
+.heyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--gold2);opacity:0;animation:fup .8s .3s var(--expo) forwards;margin-bottom:1.2rem}
+.heyebrow-line{width:26px;height:1px;background:var(--gold2)}
+.hh1{font-family:var(--ff-d);font-size:clamp(3.8rem,9vw,8.5rem);font-weight:900;line-height:.94;letter-spacing:-.03em;opacity:0;animation:fup .9s .5s var(--expo) forwards}
+.hh1 em{font-style:italic;font-weight:400;color:var(--ember);display:block}
+.htag{font-size:1.05rem;font-weight:300;line-height:1.65;color:rgba(232,228,221,.62);max-width:420px;margin-top:1.8rem;opacity:0;animation:fup .9s .7s var(--expo) forwards}
+.hbtns{display:flex;align-items:center;gap:1.5rem;margin-top:2.8rem;opacity:0;animation:fup .9s .9s var(--expo) forwards}
+.btn-f{padding:.95rem 2.2rem;background:var(--ember);color:var(--white);font-family:var(--ff-b);font-size:.77rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;text-decoration:none;border-radius:2px;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-f:hover{background:var(--ember2);transform:translateY(-2px);box-shadow:0 12px 32px -4px rgba(232,86,26,.4)}
+.btn-o{padding:.95rem 2.2rem;border:1px solid rgba(232,228,221,.2);color:rgba(232,228,221,.75);font-family:var(--ff-b);font-size:.77rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;text-decoration:none;border-radius:2px;display:inline-flex;align-items:center;transition:border-color .2s,color .2s,background .2s}
+.btn-o:hover{border-color:rgba(232,228,221,.65);color:var(--white);background:rgba(232,228,221,.05)}
+.hscroll{position:absolute;bottom:2.5rem;right:3rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;animation:fin 1s 1.8s forwards}
+.hscroll-txt{font-size:.58rem;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:rgba(232,228,221,.3);writing-mode:vertical-rl}
+.hscroll-trk{width:1px;height:64px;background:rgba(232,228,221,.1);overflow:hidden}
+.hscroll-trk::after{content:'';display:block;width:100%;height:40%;background:linear-gradient(to bottom,transparent,var(--ember),transparent);animation:sfall 2.2s 2s ease-in-out infinite;transform:translateY(-100%)}
+@keyframes sfall{to{transform:translateY(300%)}}
+.hstats{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;border-top:1px solid var(--border);opacity:0;animation:fin .8s 1.3s forwards}
+.hstat{flex:1;padding:1.4rem 2rem;display:flex;flex-direction:column;gap:.3rem;border-right:1px solid var(--border);background:rgba(11,13,15,.72);backdrop-filter:blur(8px)}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:var(--ff-d);font-size:1.9rem;font-weight:700;color:var(--white);line-height:1}
+.hstat-n span{color:var(--ember)}
+.hstat-l{font-size:.63rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}
+@keyframes fup{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fin{to{opacity:1}}
+/* SECTION */
+.sec{padding:8rem 3rem}
+.sec-sm{padding:5rem 3rem}
+.stag{display:inline-flex;align-items:center;gap:.6rem;font-size:.67rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--ember);margin-bottom:.9rem}
+.stag::before{content:'';display:inline-block;width:18px;height:1px;background:var(--ember)}
+.sh2{font-family:var(--ff-d);font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.sh2 em{font-style:italic;font-weight:400;color:rgba(232,228,221,.45)}
+.rev{opacity:0;transform:translateY(28px);transition:opacity .7s var(--expo),transform .7s var(--expo)}
+.rev.in{opacity:1;transform:none}
+/* CATEGORIES */
+.cats{background:var(--deep)}
+.cats-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
+.cgrid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:3px}
+.citem{position:relative;overflow:hidden;cursor:none}
+.citem:first-child{grid-row:span 2}
+.cimg{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--expo);display:block}
+.citem:hover .cimg{transform:scale(1.07)}
+.coverlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,13,15,.92) 0%,rgba(11,13,15,.08) 55%)}
+.cbody{position:absolute;bottom:0;left:0;right:0;padding:1.8rem}
+.ctag{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--gold2);margin-bottom:.4rem}
+.cname{font-family:var(--ff-d);font-size:1.55rem;font-weight:700;line-height:1.1}
+.citem:first-child .cname{font-size:2.1rem}
+.csub{font-size:.77rem;color:rgba(232,228,221,.52);margin-top:.3rem;line-height:1.5;max-height:0;overflow:hidden;transition:max-height .4s var(--expo)}
+.citem:hover .csub{max-height:60px}
+.carrow{display:inline-flex;align-items:center;gap:.35rem;margin-top:.7rem;font-size:.67rem;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ember);opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s;text-decoration:none}
+.citem:hover .carrow{opacity:1;transform:none}
+/* PACKAGES */
+.pkgs{background:var(--night)}
+.ptabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:3rem;overflow-x:auto;scrollbar-width:none}
+.ptabs::-webkit-scrollbar{display:none}
+.ptab{padding:.75rem 1.6rem;font-family:var(--ff-b);font-size:.71rem;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;cursor:pointer;transition:color .2s,border-color .2s}
+.ptab.on{color:var(--ember);border-bottom-color:var(--ember)}.ptab:hover:not(.on){color:var(--light)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.pcard{background:var(--panel);overflow:hidden;display:flex;flex-direction:column;cursor:none;transition:transform .4s var(--expo)}
+.pcard:hover{transform:translateY(-5px);z-index:2}
+.pcard:hover .pthumb img{transform:scale(1.06)}
+.pthumb{position:relative;aspect-ratio:3/2;overflow:hidden}
+.pthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--expo);filter:brightness(.88)}
+.pbadge{position:absolute;top:.9rem;left:.9rem;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;padding:.28rem .65rem;border-radius:1px;background:var(--ember);color:var(--white)}
+.pbadge.gld{background:var(--gold)}.pbadge.tl{background:var(--teal)}
+.pbody{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.pmeta{display:flex;align-items:center;gap:.6rem;font-size:.64rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.55rem}
+.pdot{width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.pname{font-family:var(--ff-d);font-size:1.22rem;font-weight:700;line-height:1.2;color:var(--white);flex:1}
+.pincl{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.3rem}
+.pincl span{font-size:.58rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;padding:.2rem .55rem;border-radius:1px;background:var(--mist);color:rgba(232,228,221,.5)}
+.pfooter{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+.porig{font-size:.67rem;color:var(--muted);text-decoration:line-through}
+.pprice{font-family:var(--ff-d);font-size:1.6rem;font-weight:700;color:var(--gold2);line-height:1}
+.pprice sub{font-size:.7rem;font-weight:400;color:var(--muted);vertical-align:middle;margin-right:.1rem}
+.plink{font-size:.67rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--white);text-decoration:none;padding:.55rem 1rem;border:1px solid var(--border);transition:border-color .2s,background .2s;border-radius:1px}
+.plink:hover{border-color:var(--ember);background:var(--ember)}
+/* ITINERARY */
+.spot{background:var(--deep)}
+.spot-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.spot-imgs{position:relative}
+.spot-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:2px}
+.spot-inset{position:absolute;bottom:-2.5rem;right:-2.5rem;width:44%;aspect-ratio:1;object-fit:cover;border:4px solid var(--deep);border-radius:2px}
+.spot-badge{position:absolute;top:1.5rem;left:-1.5rem;background:var(--ember);padding:1.2rem 1.4rem;z-index:2}
+.spot-badge-n{font-family:var(--ff-d);font-size:2rem;font-weight:900;color:var(--white);line-height:1}
+.spot-badge-t{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.7);margin-top:.2rem}
+.days{margin-top:2.5rem}
+.drow{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.drow:last-child{border-bottom:none}
+.dnum{font-family:var(--ff-d);font-weight:700;font-size:.82rem;color:var(--ember);min-width:2.5rem;padding-top:.1rem}
+.dtitle{font-weight:600;font-size:.88rem;color:var(--white);margin-bottom:.2rem}
+.ddesc{font-size:.78rem;color:var(--muted);line-height:1.6}
+/* ABOUT */
+.abt{background:var(--night)}
+.abt-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.aquote{font-family:var(--ff-d);font-size:clamp(1.4rem,2.8vw,2.2rem);font-style:italic;font-weight:400;line-height:1.45;color:rgba(232,228,221,.72);border-left:2px solid var(--ember);padding-left:1.8rem;margin:2.5rem 0}
+.abody{font-size:.88rem;color:var(--muted);line-height:1.8}
+.abody+.abody{margin-top:.9rem}
+.afeats{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:2.5rem}
+.afeat{padding:1.3rem;background:var(--panel);border:1px solid var(--border);border-top:2px solid transparent;transition:border-top-color .2s,transform .2s}
+.afeat:hover{border-top-color:var(--ember);transform:translateY(-3px)}
+.afeat-icon{font-size:1.3rem;margin-bottom:.6rem}
+.afeat-t{font-size:.8rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.afeat-d{font-size:.7rem;color:var(--muted);line-height:1.55}
+.aimg-wrap{position:relative}
+.aimg-main{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.aimg-acc{position:absolute;bottom:-2rem;left:-2rem;width:54%;aspect-ratio:16/10;object-fit:cover;border:5px solid var(--night);display:block}
+.arat{position:absolute;top:2rem;right:-2rem;background:var(--ember);padding:1.2rem 1.5rem;text-align:center;z-index:2}
+.arat-n{font-family:var(--ff-d);font-size:2.4rem;font-weight:900;color:var(--white);line-height:1}
+.arat-s{color:rgba(255,255,255,.92);font-size:.88rem;margin:.2rem 0}
+.arat-l{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.65)}
+/* REVIEWS */
+.rvws{background:var(--deep)}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.rcard{background:var(--panel);padding:2rem;border:1px solid var(--border);border-top:2px solid transparent;transition:border-top-color .3s,transform .3s}
+.rcard:hover{border-top-color:var(--gold);transform:translateY(-4px)}
+.rstars{color:var(--gold2);letter-spacing:.1em;font-size:.88rem;margin-bottom:1rem}
+.rtext{font-family:var(--ff-d);font-size:.98rem;font-style:italic;line-height:1.7;color:rgba(232,228,221,.78);margin-bottom:1.3rem}
+.rtext::before{content:'\201C';color:var(--ember);font-size:1.3rem}
+.rauthor{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.rtrip{font-size:.66rem;color:rgba(107,114,128,.55);margin-top:.18rem}
+/* CONTACT */
+.ctct{background:var(--night)}
+.ctct-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem}
+.cdetail{margin-top:2.8rem;display:flex;flex-direction:column;gap:2rem}
+.cdlbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--ember);margin-bottom:.3rem}
+.cdval{font-size:1rem;color:var(--light);line-height:1.5;text-decoration:none;display:block;transition:color .2s}
+.cdval:hover{color:var(--ember2)}
+.socs{display:flex;gap:.8rem;margin-top:2.5rem}
+.socbtn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:2px;color:var(--muted);text-decoration:none;font-size:.75rem;font-weight:700;transition:border-color .2s,background .2s,color .2s}
+.socbtn:hover{border-color:var(--ember);background:var(--ember);color:var(--white)}
+.cftitle{font-family:var(--ff-d);font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:2rem}
+.cfrow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.cfg{display:flex;flex-direction:column;gap:.42rem}.cfg.s2{grid-column:1/-1}
+.cflbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.cfinput,.cftarea,.cfsel{padding:.85rem 1rem;background:var(--panel);border:1px solid var(--border);border-radius:2px;color:var(--white);font-family:var(--ff-b);font-size:.87rem;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.cfinput::placeholder,.cftarea::placeholder{color:var(--mist)}
+.cfinput:focus,.cftarea:focus,.cfsel:focus{border-color:var(--ember)}
+.cftarea{min-height:130px;resize:vertical}
+.cfsub{width:100%;margin-top:.5rem;padding:1.1rem;background:var(--ember);border:none;border-radius:2px;color:var(--white);font-family:var(--ff-b);font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.cfsub:hover{background:var(--ember2);transform:translateY(-2px);box-shadow:0 12px 32px -4px rgba(232,86,26,.4)}
+/* FOOTER */
+footer{background:var(--deep);border-top:1px solid var(--border);padding:5rem 3rem 2.5rem}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border)}
+.flogotxt{font-family:var(--ff-d);font-size:1.7rem;font-weight:700;color:var(--white);display:block;margin-bottom:.8rem}
+.fabt{font-size:.8rem;color:var(--muted);line-height:1.7}
+.fhead{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--ember);margin-bottom:1.4rem}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.flinks a{font-size:.8rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold2)}
+.fbtm{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;font-size:.68rem;color:rgba(107,114,128,.45);flex-wrap:wrap;gap:1rem}
+.fpays{display:flex;gap:.6rem;align-items:center}
+.fpay{padding:.2rem .55rem;border:1px solid var(--border);border-radius:2px;font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(107,114,128,.45)}
+/* WA */
+.waf{position:fixed;bottom:2rem;right:2rem;z-index:800;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.35);animation:wab 3s ease-in-out infinite;transition:transform .25s}
+.waf:hover{animation:none;transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.5)}
+.waf svg{width:28px;height:28px;fill:#fff}
+@keyframes wab{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .cgrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.citem:first-child{grid-row:span 1}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .spot-grid{grid-template-columns:1fr}.spot-imgs{display:none}
+  .abt-inner{grid-template-columns:1fr}.aimg-wrap{display:none}
+  .fgrid{grid-template-columns:1fr 1fr;gap:2.5rem}
+}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}nav.solid{padding:.9rem 1.5rem}
+  .nlinks{display:none}
+  .sec,.sec-sm{padding:5rem 1.5rem}
+  .hcontent{padding:0 1.5rem 7.5rem}
+  .hbg{grid-template-columns:1fr}.hbg-col:last-child{display:none}
+  .hstats{position:static;flex-wrap:wrap;border-top:none}
+  .hstat{border:1px solid var(--border);min-width:50%}
+  .hscroll{display:none}
+  .cgrid{grid-template-columns:1fr}.cats-hdr{flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .pgrid{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:1fr}
+  .ctct-grid{grid-template-columns:1fr;gap:3rem}
+  .fgrid{grid-template-columns:1fr;gap:2rem}
+  .cfrow{grid-template-columns:1fr}
+  body{cursor:auto}#cd,#cr{display:none}
+}
+</style>
+</head>
+<body>
+<div id="cd"></div>
+<div id="cr"></div>
 
-      <main>
-        <section class="hero">
-          <div class="hero-content">
-            <p class="eyebrow">Boutique Travel Experiences</p>
-            <h1>
-              Curated journeys<br />
-              for the way <span class="accent">you</span> travel.
-            </h1>
-            <p class="hero-subtitle">
-              Handcrafted itineraries, seamless planning, and unforgettable memories—designed by experts who travel like you do.
-            </p>
-            <div class="hero-actions">
-              <button class="primary-btn" data-scroll-target="#trips">
-                Explore Signature Trips
-              </button>
-              <button class="ghost-btn" data-scroll-target="#contact">
-                Custom Itinerary
-              </button>
-            </div>
-            <div class="hero-meta">
-              <div>
-                <h3>120+</h3>
-                <p>Curated routes</p>
-              </div>
-              <div>
-                <h3>98%</h3>
-                <p>Happy travelers</p>
-              </div>
-              <div>
-                <h3>35</h3>
-                <p>Countries covered</p>
-              </div>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-mosaic" aria-hidden="true">
-              <div class="hero-mosaic-tile hero-mosaic-tile--big">
-                <img
-                  src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=70"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="hero-mosaic-tile">
-                <img
-                  src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=70"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="hero-mosaic-tile">
-                <img
-                  src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=70"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-            <div class="hero-card hero-card-main">
-              <h3>Sunrise over Cappadocia</h3>
-              <p>Hot air balloons · Boutique cave stay · Local guide</p>
-              <span class="pill">New</span>
-            </div>
-            <div class="hero-card hero-card-secondary">
-              <p>Next group departure</p>
-              <h3>April 18, 2026</h3>
-              <span>Limited seats</span>
-            </div>
-            <div class="hero-tag hero-tag-top">Slow Travel Friendly</div>
-            <div class="hero-tag hero-tag-bottom">Visa & Support Included</div>
-          </div>
-        </section>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nlogo">Twist <span class="nlogo-em">&amp;</span> Tours <span class="ndot"></span></a>
+  <ul class="nlinks">
+    <li><a href="#cats">Trips</a></li>
+    <li><a href="#pkgs">Packages</a></li>
+    <li><a href="#spot">Itinerary</a></li>
+    <li><a href="#abt">About</a></li>
+    <li><a href="#rvws">Reviews</a></li>
+    <li><a href="#ctct" class="ncta">Book Now</a></li>
+  </ul>
+</nav>
 
-        <section id="trips" class="section trips-section">
-          <div class="section-header">
-            <h2>Signature Trips</h2>
-            <p>
-              Each itinerary is crafted end-to-end by our travel designers. Click a trip to see the full day-by-day plan and download it instantly.
-            </p>
-          </div>
-
-          <div id="trip-filters" class="trip-filters">
-            <button class="chip chip-active" data-filter="all">All</button>
-            <button class="chip" data-filter="beach">Beach</button>
-            <button class="chip" data-filter="city">City</button>
-            <button class="chip" data-filter="adventure">Adventure</button>
-            <button class="chip" data-filter="romantic">Romantic</button>
-          </div>
-
-          <div id="trip-list" class="trip-grid">
-            <!-- Cards injected by JS -->
-          </div>
-        </section>
-
-        <section id="why-us" class="section why-section">
-          <div class="section-header">
-            <h2>Why WanderNest Journeys</h2>
-            <p>
-              Not another generic travel agency. We combine local expertise with boutique hospitality to design trips that feel personal.
-            </p>
-          </div>
-          <div class="why-grid">
-            <div class="why-card">
-              <h3>Human-crafted, not AI-only</h3>
-              <p>
-                Every itinerary is reviewed by a destination specialist who has actually been there, walked those streets, and stayed in those hotels.
-              </p>
-            </div>
-            <div class="why-card">
-              <h3>End-to-end support</h3>
-              <p>
-                From visas and insurance to local SIMs and airport transfers—we build everything into your plan so you only focus on the experience.
-              </p>
-            </div>
-            <div class="why-card">
-              <h3>Flexible & modular</h3>
-              <p>
-                Start with a signature trip and we’ll adapt days, pace, and budget to match how you like to travel.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="section contact-section">
-          <div class="section-header">
-            <h2>Plan Your Next Journey</h2>
-            <p>
-              Share a few details and our travel designer will reach out with a draft itinerary within 24 hours.
-            </p>
-          </div>
-          <form class="contact-form" onsubmit="event.preventDefault();">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your full name" />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="you@example.com" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="destination">Dream destination</label>
-                <input id="destination" type="text" placeholder="e.g., Bali, Paris, Kenya" />
-              </div>
-              <div class="form-field">
-                <label for="dates">Tentative dates</label>
-                <input id="dates" type="text" placeholder="Month or exact dates" />
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="message">Tell us how you like to travel</label>
-              <textarea
-                id="message"
-                rows="4"
-                placeholder="Slow pace, food-focused, kid-friendly, workation, honeymoon, etc."
-              ></textarea>
-            </div>
-            <button type="submit" class="primary-btn full-width">
-              Request a Custom Itinerary
-            </button>
-          </form>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <p>© <span id="year"></span> WanderNest Journeys. All rights reserved.</p>
-        <p class="footer-sub">
-          Designed with care for modern explorers.
-        </p>
-      </footer>
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg" aria-hidden="true">
+    <div class="hbg-col"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1000&q=85" alt=""></div>
+    <div class="hbg-col"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1000&q=85" alt=""></div>
+  </div>
+  <div class="hcontent">
+    <p class="heyebrow"><span class="heyebrow-line"></span>Est. 2019 · Delhi NCR · 990+ Happy Travellers</p>
+    <h1 class="hh1">Twist<br><em>&amp; Tours</em></h1>
+    <p class="htag">Luxury travel, because you deserve it. Himalayan treks to Bali beaches — every journey, unforgettable.</p>
+    <div class="hbtns">
+      <a href="#pkgs" class="btn-f">Explore Packages →</a>
+      <a href="#ctct" class="btn-o">Plan My Trip</a>
     </div>
+  </div>
+  <div class="hscroll" aria-hidden="true">
+    <span class="hscroll-txt">Scroll</span>
+    <div class="hscroll-trk"></div>
+  </div>
+  <div class="hstats">
+    <div class="hstat"><div class="hstat-n">990<span>+</span></div><div class="hstat-l">Happy Travellers</div></div>
+    <div class="hstat"><div class="hstat-n">4.6<span>★</span></div><div class="hstat-l">Google Rating</div></div>
+    <div class="hstat"><div class="hstat-n">50<span>+</span></div><div class="hstat-l">Destinations</div></div>
+    <div class="hstat"><div class="hstat-n">6<span>+</span></div><div class="hstat-l">Years Experience</div></div>
+  </div>
+</section>
 
-    <div id="trip-modal" class="modal" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal></div>
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" data-close-modal>&times;</button>
-        <div class="modal-body">
-          <div class="modal-banner">
-            <img id="modal-image" alt="" loading="lazy" decoding="async" />
-            <div class="modal-banner-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="modal-header">
-            <h2 id="modal-title"></h2>
-            <p id="modal-subtitle" class="modal-subtitle"></p>
-            <div class="modal-tags">
-              <span id="modal-duration" class="pill"></span>
-              <span id="modal-theme" class="pill pill-outline"></span>
-            </div>
-          </div>
-          <div id="modal-itinerary" class="modal-itinerary">
-            <!-- Days injected by JS -->
-          </div>
-          <div class="modal-footer">
-            <button id="download-btn" class="primary-btn">
-              Download Itinerary
-            </button>
-            <button class="ghost-btn" data-close-modal>Close</button>
-          </div>
-        </div>
+<!-- CATEGORIES -->
+<section class="sec cats" id="cats">
+  <div class="cats-hdr rev">
+    <div><p class="stag">Where To Go</p><h2 class="sh2">Choose Your<br><em>Adventure</em></h2></div>
+    <a href="https://twistandtours.com" target="_blank" class="btn-o" style="font-size:.72rem">View All Trips →</a>
+  </div>
+  <div class="cgrid rev">
+    <div class="citem">
+      <img class="cimg" src="https://images.unsplash.com/photo-1572089843888-87b6c2bd1c70?w=900&q=80" alt="Weekend Trips">
+      <div class="coverlay"></div>
+      <div class="cbody">
+        <div class="ctag">04 · Weekend Trips</div>
+        <div class="cname">Weekend<br>Escapes</div>
+        <div class="csub">Kasol, Manali, McLeodganj, Kedarnath Dham — quick getaways from Delhi</div>
+        <a href="#pkgs" class="carrow">Explore →</a>
       </div>
     </div>
+    <div class="citem">
+      <img class="cimg" src="https://images.unsplash.com/photo-1590080876090-30f8a2e2b9c6?w=700&q=80" alt="Domestic Trips">
+      <div class="coverlay"></div>
+      <div class="cbody">
+        <div class="ctag">01 · Domestic</div>
+        <div class="cname">Domestic<br>Trips</div>
+        <div class="csub">Kashmir, Goa, Spiti, Chardham</div>
+        <a href="#pkgs" class="carrow">Explore →</a>
+      </div>
+    </div>
+    <div class="citem">
+      <img class="cimg" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=80" alt="International Trips">
+      <div class="coverlay"></div>
+      <div class="cbody">
+        <div class="ctag">02 · International</div>
+        <div class="cname">International<br>Trips</div>
+        <div class="csub">Bali, Dubai, Phuket, Vietnam</div>
+        <a href="#pkgs" class="carrow">Explore →</a>
+      </div>
+    </div>
+    <div class="citem">
+      <img class="cimg" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700&q=80" alt="Beginner Treks">
+      <div class="coverlay"></div>
+      <div class="cbody">
+        <div class="ctag">03 · Treks</div>
+        <div class="cname">Beginner<br>Treks</div>
+        <div class="csub">Hampta Pass, Valley of Flowers</div>
+        <a href="#pkgs" class="carrow">Explore →</a>
+      </div>
+    </div>
+    <div class="citem">
+      <img class="cimg" src="https://images.unsplash.com/photo-1592483648228-b35146a4330c?w=700&q=80" alt="Spiritual Trips">
+      <div class="coverlay"></div>
+      <div class="cbody">
+        <div class="ctag">05 · Pilgrimage</div>
+        <div class="cname">Spiritual<br>Journeys</div>
+        <div class="csub">Kedarnath, Chardham, Ayodhya</div>
+        <a href="#pkgs" class="carrow">Explore →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="app.js"></script>
-  </body>
+<!-- PACKAGES -->
+<section class="sec pkgs" id="pkgs">
+  <div class="rev" style="margin-bottom:3rem">
+    <p class="stag">Our Packages</p>
+    <h2 class="sh2">Curated for<br><em>Every Traveller</em></h2>
+  </div>
+  <div class="ptabs rev">
+    <button class="ptab on" data-tab="all">All</button>
+    <button class="ptab" data-tab="intl">International</button>
+    <button class="ptab" data-tab="dom">Domestic</button>
+    <button class="ptab" data-tab="wknd">Weekend</button>
+    <button class="ptab" data-tab="trek">Treks</button>
+  </div>
+  <div class="pgrid rev" id="pgrid">
+    <div class="pcard" data-cat="intl">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/0bbd5216-fe7c-452f-a0cd-0d6225734c8f.jpg" alt="Bali" loading="lazy"><span class="pbadge">Featured</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>International</span><span class="pdot"></span><span>7 Days</span><span class="pdot"></span><span>Flights Incl.</span></div>
+        <div class="pname">Bali Backpacking with Flights</div>
+        <div class="pincl"><span>Flights</span><span>Hotel</span><span>Transfers</span><span>Sightseeing</span></div>
+        <div class="pfooter"><div><div class="porig">₹92,000</div><div class="pprice"><sub>₹</sub>80,000</div></div><a href="https://twistandtours.com/product/bali-backpacking-with-flights-copy/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="intl">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/0b9af932-709a-4463-b989-44cf99d71bc4.jpg" alt="Phuket Krabi" loading="lazy"><span class="pbadge gld">Popular</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>International</span><span class="pdot"></span><span>6 Days</span></div>
+        <div class="pname">Phuket Krabi — 5 Night &amp; 6 Day</div>
+        <div class="pincl"><span>Hotel</span><span>Transfers</span><span>Island Tours</span></div>
+        <div class="pfooter"><div><div class="porig">₹70,000</div><div class="pprice"><sub>₹</sub>60,000</div></div><a href="https://twistandtours.com/product/phuket-krabi-package-5-night-6-day/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="intl">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/a0c7a82b-f9e3-49b4-aeef-f3673d1b8a05.webp" alt="Vietnam" loading="lazy"><span class="pbadge">Featured</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>International</span><span class="pdot"></span><span>7 Days</span><span class="pdot"></span><span>Flights Incl.</span></div>
+        <div class="pname">Vietnam 7 Days with Flights</div>
+        <div class="pincl"><span>Flights</span><span>Hotel</span><span>Transfers</span></div>
+        <div class="pfooter"><div><div class="porig">₹80,000</div><div class="pprice"><sub>₹</sub>70,000</div></div><a href="https://twistandtours.com/product/vietnam-7-days-with-flights/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="trek">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/v1-512x426.png" alt="Valley of Flowers" loading="lazy"><span class="pbadge tl">Trek</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Beginner Trek</span><span class="pdot"></span><span>Multi-day</span></div>
+        <div class="pname">Valley of Flowers</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>Guide</span><span>Permits</span></div>
+        <div class="pfooter"><div><div class="porig">₹9,999</div><div class="pprice"><sub>₹</sub>8,999</div></div><a href="https://twistandtours.com/product/valley-of-flowers/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="dom">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/sp1-512x426.png" alt="Spiti Valley" loading="lazy"><span class="pbadge gld">Best Seller</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Domestic</span><span class="pdot"></span><span>Multi-day</span></div>
+        <div class="pname">Spiti Valley</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>Transport</span><span>Guide</span></div>
+        <div class="pfooter"><div><div class="porig">₹18,999</div><div class="pprice"><sub>₹</sub>16,999</div></div><a href="https://twistandtours.com/product/spiti-valley/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="wknd">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/mc-512x426.png" alt="Mcleodganj" loading="lazy"><span class="pbadge">Weekend</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Weekend</span><span class="pdot"></span><span>3 Days</span></div>
+        <div class="pname">Mcleodganj Triund Dharamshala</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>Bonfire</span></div>
+        <div class="pfooter"><div><div class="porig">₹8,000</div><div class="pprice"><sub>₹</sub>6,499</div></div><a href="https://twistandtours.com/product/mcleodganj-triund-dharamshala/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="wknd">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/32-512x426.png" alt="Kasol Kheerganga" loading="lazy"><span class="pbadge">Weekend Trek</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Weekend Trek</span><span class="pdot"></span><span>4 Days</span></div>
+        <div class="pname">Kasol Kheerganga</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>DJ Night</span><span>Bonfire</span></div>
+        <div class="pfooter"><div><div class="porig">₹8,299</div><div class="pprice"><sub>₹</sub>6,299</div></div><a href="https://twistandtours.com/product/kasol-kheerganga/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="wknd">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/n2-512x426.png" alt="Tirthan Jibhi" loading="lazy"><span class="pbadge">Weekend</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Weekend</span><span class="pdot"></span><span>Multi-day</span></div>
+        <div class="pname">Jibhi Jalori Tirthan Valley</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>Transfers</span></div>
+        <div class="pfooter"><div><div class="porig">₹8,000</div><div class="pprice"><sub>₹</sub>6,499</div></div><a href="https://twistandtours.com/product/tirthan-jibhi-jalori-pass/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+    <div class="pcard" data-cat="wknd">
+      <div class="pthumb"><img src="https://twistandtours.com/wp-content/uploads/2024/03/k1-1-512x426.png" alt="Kedarnath" loading="lazy"><span class="pbadge gld">Spiritual</span></div>
+      <div class="pbody">
+        <div class="pmeta"><span>Pilgrimage</span><span class="pdot"></span><span>Fri to Wed</span></div>
+        <div class="pname">Kedarnath Dham</div>
+        <div class="pincl"><span>Stay</span><span>Meals</span><span>Guide</span></div>
+        <div class="pfooter"><div><div class="porig">₹9,000</div><div class="pprice"><sub>₹</sub>7,000</div></div><a href="https://twistandtours.com/product/kedarnath-dham-every-fri-to-wed/" class="plink" target="_blank">Book Now</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARY SPOTLIGHT -->
+<section class="sec spot" id="spot">
+  <div class="spot-grid">
+    <div class="spot-imgs rev">
+      <img class="spot-main" src="https://twistandtours.com/wp-content/uploads/2024/03/1-636x426.png" alt="Kasol">
+      <img class="spot-inset" src="https://twistandtours.com/wp-content/uploads/2024/03/3-636x426.png" alt="Kheerganga">
+      <div class="spot-badge"><div class="spot-badge-n">4</div><div class="spot-badge-t">Day Trip</div></div>
+    </div>
+    <div class="rev">
+      <p class="stag">Sample Itinerary</p>
+      <h2 class="sh2">Kasol<br><em>Kheerganga</em></h2>
+      <p style="font-size:.87rem;color:var(--muted);margin-top:1rem;line-height:1.75;max-width:480px">Located within the solitude of the Himalayas — green meadows, wild flora, natural hot springs, and waterfalls. A beloved 4-day trek departing every Friday from Delhi.</p>
+      <div class="days">
+        <div class="drow"><div class="dnum">Day 0</div><div><div class="dtitle">Delhi → Kasol</div><div class="ddesc">Depart Delhi at 6 PM in a deluxe AC bus. Overnight journey through the mountains.</div></div></div>
+        <div class="drow"><div class="dnum">Day 1</div><div><div class="dtitle">A Day in Kasol</div><div class="ddesc">Arrive by 11 AM, check-in at Swiss cottages. Lunch, Manikaran visit, local café & market, DJ night by bonfire.</div></div></div>
+        <div class="drow"><div class="dnum">Day 2</div><div><div class="dtitle">Kheerganga Trek</div><div class="ddesc">Morning trek to Kheerganga. Check-in dome camps. Natural hot springs, dinner, bonfire music party.</div></div></div>
+        <div class="drow"><div class="dnum">Day 3</div><div><div class="dtitle">Sightseeing + Return</div><div class="ddesc">Sunrise views, breakfast, Kasol market shopping. Board bus back to Delhi in the evening.</div></div></div>
+        <div class="drow"><div class="dnum">Day 4</div><div><div class="dtitle">Back in Delhi</div><div class="ddesc">Arrive home in the morning — with a bag full of memories and stories to tell.</div></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
+        <a href="https://twistandtours.com/product/kasol-kheerganga/" class="btn-f" target="_blank">Book This Trip</a>
+        <a href="https://api.whatsapp.com/send?phone=917275983213" class="btn-o" target="_blank">WhatsApp Enquiry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec abt" id="abt">
+  <div class="abt-inner">
+    <div class="rev">
+      <p class="stag">About Us</p>
+      <h2 class="sh2">Luxury Travel,<br><em>Because You Deserve It</em></h2>
+      <blockquote class="aquote">"Every journey is an adventure waiting to unfold — and we're here to make it extraordinary."</blockquote>
+      <p class="abody">Welcome to Twist &amp; Tours, a boutique travel company established in 2019 with a passion for exploration and a commitment to creating unforgettable experiences. We specialise in Leisure, College, and Corporate tours across India and beyond — from spiritual pilgrimages to beach escapes and high-altitude treks.</p>
+      <p class="abody">Based near Saket Metro, Delhi, we've served 990+ happy travellers and built a reputation for care, detail, and consistently excellent trip captains like Mohit, Abhishek, and Sonu.</p>
+      <div class="afeats">
+        <div class="afeat"><div class="afeat-icon">🗺</div><div class="afeat-t">Destination Discovery</div><div class="afeat-d">Handpicked destinations with local insight</div></div>
+        <div class="afeat"><div class="afeat-icon">🏨</div><div class="afeat-t">Top-Rated Hotels</div><div class="afeat-d">Only verified, quality accommodations</div></div>
+        <div class="afeat"><div class="afeat-icon">🚌</div><div class="afeat-t">Full Transport</div><div class="afeat-d">Deluxe AC buses &amp; complete transfers</div></div>
+        <div class="afeat"><div class="afeat-icon">🧭</div><div class="afeat-t">Expert Captains</div><div class="afeat-d">Trusted guides who care deeply</div></div>
+      </div>
+    </div>
+    <div class="aimg-wrap rev">
+      <img class="aimg-main" src="https://twistandtours.com/wp-content/uploads/elementor/thumbs/k3-1-qlv0x1b9g1jw6soqxa8g6rqt4sc5ed9zgh1bv8ck5k.png" alt="Kedarnath">
+      <img class="aimg-acc" src="https://twistandtours.com/wp-content/uploads/elementor/thumbs/k1-1-qlv0x1b7q7g7ka8tprxuil9m24g8or5o4tqtvq6n1c.png" alt="Kedarnath trek">
+      <div class="arat"><div class="arat-n">4.6</div><div class="arat-s">★★★★★</div><div class="arat-l">990+ Reviews</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rvws" id="rvws">
+  <div class="rev"><p class="stag">Testimonials</p><h2 class="sh2">Real Stories,<br><em>Real Adventurers</em></h2></div>
+  <div class="rgrid rev">
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">Travelling, hotel, food — everything was 10/10. Planning my next trip super soon. These guys are absolutely the best!</p><div class="rauthor">Amit Verma</div><div class="rtrip">Jaisalmer Trip · Dec 2023</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">Complete trip, food, hotels — everything above my expectations. Guide Abhishek was brilliant. T&amp;T is my go-to now.</p><div class="rauthor">Tanisha Sehgal</div><div class="rtrip">Verified Google Review</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">The Christmas batch in Jaisalmer was extraordinary. The group, captain Mohit — an experience I'll never forget.</p><div class="rauthor">Kamal</div><div class="rtrip">Jaisalmer Christmas Batch</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">First community trip to Jaisalmer — great experience with Twist &amp; Tours. Looking forward to many more plans!</p><div class="rauthor">Tanya Soni</div><div class="rtrip">Community Trip · Feb 2024</div></div>
+    <div class="rcard"><div class="rstars">★★★★☆</div><p class="rtext">Everything perfectly organised — travel, stay, guide. Our guide Sonu at Kedarnath made the trek easy and so fun.</p><div class="rauthor">Anindya Guha</div><div class="rtrip">Kedarnath Trek · Oct 2023</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">Captain Mohit was amazing throughout — took really good care of us. The whole experience was just wonderful!</p><div class="rauthor">Yashika Gautam84</div><div class="rtrip">Weekend Batch · Feb 2024</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec ctct" id="ctct">
+  <div class="ctct-grid">
+    <div class="rev">
+      <p class="stag">Get In Touch</p>
+      <h2 class="sh2">Let's Plan Your<br><em>Next Adventure</em></h2>
+      <div class="cdetail">
+        <div><p class="cdlbl">Address</p><a href="https://goo.gl/maps/1cYBrErsT18HkAbQ8" class="cdval" target="_blank">Building No. 55, 2nd Floor, Lane 2<br>Westend Marg, Near Saket Metro<br>New Delhi – 110 030</a></div>
+        <div><p class="cdlbl">Phone</p><a href="tel:+919318409509" class="cdval">+91 93184 09509</a></div>
+        <div><p class="cdlbl">WhatsApp</p><a href="https://api.whatsapp.com/send?phone=917275983213" class="cdval" target="_blank">+91 72759 83213</a></div>
+        <div><p class="cdlbl">Email</p><a href="mailto:twistandtour@gmail.com" class="cdval">twistandtour@gmail.com</a></div>
+      </div>
+      <div class="socs">
+        <a href="https://www.facebook.com/twistandtours" class="socbtn" target="_blank">FB</a>
+        <a href="https://www.instagram.com/twist.and.tours" class="socbtn" target="_blank">IG</a>
+        <a href="https://api.whatsapp.com/send?phone=917275983213" class="socbtn" target="_blank">WA</a>
+      </div>
+    </div>
+    <div class="rev">
+      <h3 class="cftitle">Send An Enquiry</h3>
+      <div class="cfrow">
+        <div class="cfg"><label class="cflbl">Your Name *</label><input type="text" class="cfinput" placeholder="Full Name"></div>
+        <div class="cfg"><label class="cflbl">Phone / WhatsApp *</label><input type="tel" class="cfinput" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="cfrow">
+        <div class="cfg"><label class="cflbl">Email</label><input type="email" class="cfinput" placeholder="you@email.com"></div>
+        <div class="cfg"><label class="cflbl">Destination</label>
+          <select class="cfsel">
+            <option value="">Choose a trip...</option>
+            <optgroup label="International"><option>Bali Backpacking with Flights</option><option>Phuket Krabi Package</option><option>Vietnam 7 Days with Flights</option><option>Dubai with Desert Safari</option></optgroup>
+            <optgroup label="Domestic"><option>Kashmir: Heaven on Earth</option><option>Spiti Valley</option><option>Goa Trip</option><option>Chardham Trip</option></optgroup>
+            <optgroup label="Weekend / Treks"><option>Kasol Kheerganga</option><option>Mcleodganj Triund</option><option>Jibhi Jalori Tirthan</option><option>Kedarnath Dham</option><option>Kedarkantha Winter Trek</option><option>Valley of Flowers</option><option>Hampta Pass Trek</option><option>Ayodhya Darshan</option><option>Manali Kasol</option></optgroup>
+            <option>Custom Trip</option>
+          </select>
+        </div>
+      </div>
+      <div class="cfrow"><div class="cfg s2"><label class="cflbl">Message</label><textarea class="cftarea" placeholder="Travel dates, group size, special requests..."></textarea></div></div>
+      <button class="cfsub" id="cfsub" onclick="handleSubmit()">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fgrid">
+    <div>
+      <span class="flogotxt">Twist &amp; Tours</span>
+      <p class="fabt">Boutique travel from Delhi NCR since 2019. We craft unforgettable journeys across India and the world — with care, expertise, and a passion for exploration.</p>
+    </div>
+    <div>
+      <p class="fhead">Destinations</p>
+      <ul class="flinks">
+        <li><a href="https://twistandtours.com/product/bali-backpacking-with-flights-copy/" target="_blank">Bali</a></li>
+        <li><a href="https://twistandtours.com/product/phuket-krabi-package-5-night-6-day/" target="_blank">Phuket Krabi</a></li>
+        <li><a href="https://twistandtours.com/product/vietnam-7-days-with-flights/" target="_blank">Vietnam</a></li>
+        <li><a href="https://twistandtours.com/product/kashmir-heaven-on-earth/" target="_blank">Kashmir</a></li>
+        <li><a href="https://twistandtours.com/product/spiti-valley/" target="_blank">Spiti Valley</a></li>
+        <li><a href="https://twistandtours.com/product/kasol-kheerganga/" target="_blank">Kasol Kheerganga</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="fhead">Quick Links</p>
+      <ul class="flinks">
+        <li><a href="#cats">Trip Categories</a></li>
+        <li><a href="#pkgs">All Packages</a></li>
+        <li><a href="#spot">Sample Itinerary</a></li>
+        <li><a href="#abt">About Us</a></li>
+        <li><a href="#rvws">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="fhead">Contact</p>
+      <ul class="flinks">
+        <li><a href="tel:+919318409509">+91 93184 09509</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=917275983213" target="_blank">WhatsApp Us</a></li>
+        <li><a href="mailto:twistandtour@gmail.com">twistandtour@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/twist.and.tours" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/twistandtours" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbtm">
+    <span>© 2025 Twist &amp; Tours. All Rights Reserved.</span>
+    <div class="fpays"><span class="fpay">Visa</span><span class="fpay">Mastercard</span><span class="fpay">UPI</span><span class="fpay">PayPal</span><span class="fpay">Amex</span></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://api.whatsapp.com/send?phone=917275983213" class="waf" target="_blank" aria-label="WhatsApp Chat">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Cursor
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function anim(){
+  cd.style.left=mx+'px';cd.style.top=my+'px';
+  rx+=(mx-rx)*.18;ry+=(my-ry)*.18;
+  cr.style.left=rx+'px';cr.style.top=ry+'px';
+  requestAnimationFrame(anim);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cd.style.width='16px';cd.style.height='16px';});
+  el.addEventListener('mouseleave',()=>{cd.style.width='8px';cd.style.height='8px';});
+});
+
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+
+// Reveal
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});
+},{threshold:.07});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+
+// Package tabs
+document.querySelectorAll('.ptab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));
+    tab.classList.add('on');
+    const cat=tab.dataset.tab;
+    document.querySelectorAll('.pcard').forEach(c=>{
+      c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+    });
+  });
+});
+
+// Form
+function handleSubmit(){
+  const btn=document.getElementById('cfsub');
+  btn.textContent='Sending...';btn.style.background='var(--mist)';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ Enquiry Sent! We\'ll reach you shortly.';btn.style.background='#1a7c4a';
+    setTimeout(()=>{btn.textContent='Send Enquiry →';btn.style.background='';btn.disabled=false;},4000);
+  },1600);
+}
+</script>
+</body>
 </html>
-
